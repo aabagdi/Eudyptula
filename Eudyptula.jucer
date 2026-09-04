@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="NcUsqt" name="Eudyptula" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" bundleIdentifier="com.aabagdi.Eudyptula"
+              companyName="aabagdi" pluginCharacteristicsValue="" pluginFormats="buildAAX,buildAU,buildAUv3,buildLV2,buildVST3"
+              companyWebsite="https://aabagdi.com">
+  <MAINGROUP id="IsKNuk" name="Eudyptula">
+    <GROUP id="{B4BA4F21-35E7-ED59-0810-2F05E54A9AA1}" name="Source">
+      <GROUP id="{C0C1D39B-A56C-18D8-E6AA-4955455B085E}" name="DSP">
+        <FILE id="N97lku" name="ChannelStream.h" compile="0" resource="0" file="Source/DSP/ChannelStream.h"/>
+        <FILE id="gnc2jv" name="CipherEngine.h" compile="0" resource="0" file="Source/DSP/CipherEngine.h"/>
+        <FILE id="j9Rpyz" name="KWeightingFilter.h" compile="0" resource="0"
+              file="Source/DSP/KWeightingFilter.h"/>
+        <FILE id="uxTYs1" name="PitchTracker.h" compile="0" resource="0" file="Source/DSP/PitchTracker.h"/>
+        <FILE id="N0JCFH" name="SoftLimiter.h" compile="0" resource="0" file="Source/DSP/SoftLimiter.h"/>
+      </GROUP>
+      <GROUP id="{D68A86C1-A917-B630-93CB-FE1C12FC0A15}" name="Parameters">
+        <FILE id="YgM5Ou" name="TextParameter.h" compile="0" resource="0" file="Source/Parameters/TextParameter.h"/>
+      </GROUP>
+      <GROUP id="{3D82E27B-CE14-89B8-D5D8-6076FE536772}" name="ThirdParty">
+        <FILE id="MjRzEe" name="tiny_aes.h" compile="0" resource="0" file="Source/ThirdParty/tiny_aes.h"/>
+      </GROUP>
+      <FILE id="wLZJ0j" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="iJ0vy8" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="L4PaDi" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="dQrP0p" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Eudyptula" macOSDeploymentTarget="12.0"
+                       osxCompatibility="12.0 SDK" vst3BinaryLocation="${HOME}/Library/Audio/Plug-Ins/VST3"
+                       auBinaryLocation="${HOME}/Library/Audio/Plug-Ins/Components"
+                       lv2BinaryLocation="${HOME}/Library/Audio/Plug-Ins/LV2" aaxBinaryLocation="${HOME}/Library/Application Support/Avid/Audio/Plug-Ins"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Eudyptula" macOSDeploymentTarget="12.0"
+                       osxCompatibility="12.0 SDK" vst3BinaryLocation="${HOME}/Library/Audio/Plug-Ins/VST3"
+                       auBinaryLocation="${HOME}/Library/Audio/Plug-Ins/Components"
+                       aaxBinaryLocation="${HOME}/Library/Application Support/Avid/Audio/Plug-Ins"
+                       lv2BinaryLocation="${HOME}/Library/Audio/Plug-Ins/LV2"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" linuxArchitecture="-m64"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="/Users/aadit/Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
