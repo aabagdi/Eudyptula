@@ -20,7 +20,7 @@ Eudyptula is a pedal-like effect. Clean audio goes in, Eudyptula does its work, 
 3. Normalizes each sample against a running envelope and quantizes it to one of **Quantize** levels, then packs it as a 16-bit word. With **Quantize** off, the normalized sample keeps its full 16-bit resolution and the cipher is the only thing coloring it.
 4. Runs every 8 samples (16 bytes) through AES-256-ECB. Each passphrase also derives a *key profile*, applied around the cipher itself: a byte-whitening mask, a shuffle of the output sample slots, and three macro axes (subdivision, tone tilt and sparsity), each level-compensated. This is why two keys of the same length give audibly different timbres rather than statistically identical noise.
 5. Passes through `8 - Corrupt` samples of the block as plain quantized audio, so **Corrupt** sweeps continuously from clean to fully ciphered.
-6. Optionally freezes and repeats a ciphered block **Hold** times, for stuttered, glitch-loop textures.
+6. Optionally reuses each ciphered block for **Hold** carrier cycles. Since one block is one cycle of the carrier, repeating it makes the wet waveform genuinely periodic — so high Hold sounds smoother and more tonal, not glitchier.
 7. Gates the wet signal below a **Sensitivity**-controlled threshold with a soft knee, so silence stays silent instead of gargling.
 8. Mixes wet against dry, then matches the output loudness to the input using a K-weighted running measurement, applies the output **Gain**, and passes the result through a soft limiter.
 
@@ -30,12 +30,12 @@ Eudyptula is a pedal-like effect. Clean audio goes in, Eudyptula does its work, 
 
 | Control | Range | What it does |
 | --- | --- | --- |
-| Mode | Encrypt / Decrypt | Which AES direction runs on the block. Decrypt on plaintext is just as musically valid as encrypt, and sounds different. |
+| Mode | Encrypt / Decrypt | Which AES direction runs on the block. Decrypt on plaintext sounds different. |
 | Mix | 0 – 1 | Dry/wet mix. 0 is fully dry, 1 is fully wet. |
 | Harmonic | x0.5 – x8 | Multiplies the tracked pitch to set the carrier, transposing the ciphered layer by octaves. |
 | Quantize | Off, 2 – 16 | Number of quantization levels before encryption. Fewer levels means coarser, more brutal ciphertext. **Off** skips quantization altogether, handing the cipher the full 16-bit word for a cleaner, less crushed result. |
 | Corrupt | 0 – 8 | How many of the 8 samples per block come from the ciphered bytes. 0 is untouched, 8 is fully ciphered. |
-| Hold | 1 – 16 | Repeats each ciphered block this many times for stutter and freeze effects. |
+| Hold | 1 – 16 | How many carrier cycles each ciphered block is reused for. At 1, every cycle of the output is a fresh random waveshape, which reads as noise; at 16, the same shape repeats and you get a stable harmonic buzz. Higher is smoother. |
 | Sensitivity | 0 – 100 % | Noise gate threshold on the wet path, sweeping from about -20 dB down to -80 dB. |
 | Gain | -48 – +24 dB | Output gain, applied after the loudness match. |
 | Enc Key / Dec Key | up to 32 chars | The passphrases used for each direction. **Random** fills the field with a random 16-character key. Treat these as timbre selectors and play around with them. |
@@ -43,7 +43,7 @@ Eudyptula is a pedal-like effect. Clean audio goes in, Eudyptula does its work, 
 Keys and all parameters are saved with the host session.
 
 ## What it sounds like
-On periodic material this produces a buzzsaw-esque, ring-mod-adjacent distortion that follows the pitch of the source; on non-periodic material it becomes a noise/texture effect. I’ve included some samples of what Eudyptula sounds like. It sounds a bit like a bitcrusher, but with a bit more sounds you can get out of it. As well, the quality of the distortion can almost sound like something out of an NES, or a crazy noisy assault. Perfect for the Merzbow in all of us. Sound samples coming soon!
+It sounds a bit like a bitcrusher, but with a bit more sounds you can get out of it. As well, the quality of the distortion can almost sound like something out of an NES, or a crazy noisy assault. Hold trades noise for tone: low for hiss and grit, high for a clean pitched buzz. Perfect for the Merzbow in us all. Sound samples coming soon!
 
 ## Building
 Open `Eudyptula.jucer` in the Projucer and export to your IDE, or build the generated project under `Builds/`. JUCE modules are vendored in the repo.
