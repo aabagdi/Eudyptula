@@ -13,7 +13,7 @@ Eudyptula is a real-time audio effect plugin (VST3, AU, AUv3, AAX and LV2) that 
 - Thus, the cryptographer's chagrin becomes the musician's merriment: I've harnessed ECB to create an interesting effect on waveforms.
 
 ## What it does
-Eudyptula is a pedal-like effect. Clean audio goes in, Eudyptula does its work, and “encrypted” audio comes out. Per block, it:
+Eudyptula is a pedal-like effect. Clean audio goes in, Eudyptula does its work, and processed audio comes out. Per block, it:
 
 1. Tracks the pitch of the incoming signal with a YIN-style monophonic tracker (roughly 43 Hz to 1.4 kHz), falling back to a fixed 220 Hz carrier when nothing pitched is detected.
 2. Resamples the input onto that carrier, multiplied by the **Harmonic** ratio, so the cipher's block rate is locked to the note being played. This is what keeps the output pitched rather than pure noise.
