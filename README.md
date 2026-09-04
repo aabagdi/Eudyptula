@@ -46,7 +46,7 @@ Keys and all parameters are saved with the host session.
 It sounds a bit like a bitcrusher, but with a bit more sounds you can get out of it. As well, the quality of the distortion can almost sound like something out of an NES, or a crazy noisy assault. Hold trades noise for tone: low for hiss and grit, high for a clean pitched buzz. Perfect for the Merzbow in us all. Sound samples coming soon!
 
 ## Building
-JUCE is not included in this repo — you need your own copy. Eudyptula is built against **JUCE 9.0.1**, and uses the `juce_audio_processors_headless` module, so earlier 8.x releases won't work.
+JUCE is not included in this repo, so you'll need your own copy. Eudyptula is built against **JUCE 9.0.1**, and uses the `juce_audio_processors_headless` module, so earlier 8.x releases won't work.
 
 1. Clone [JUCE](https://github.com/juce-framework/JUCE) and build the Projucer.
 2. Set **File → Global Paths → JUCE modules** to your `JUCE/modules` directory. Every module in this project is set to use the global path, so this is the setting that matters; the per-exporter module paths assume JUCE sits next to the repo (`../JUCE/modules`) and are only consulted if you untick "use global path".
