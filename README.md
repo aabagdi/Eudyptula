@@ -26,7 +26,7 @@ Eudyptula is a pedal-like effect. Clean audio goes in, Eudyptula does its work, 
 
 ## Interface
 
-[Eudyptula interface](https://i.imgur.com/XojrMHC.png)
+![Eudyptula interface](https://i.imgur.com/XojrMHC.png)
 
 | Control | Range | What it does |
 | --- | --- | --- |
