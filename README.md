@@ -57,7 +57,7 @@ JUCE is not included in this repo, so you'll need your own copy. Eudyptula is bu
 ## License
 - Eudyptula is free software, licensed under the **GNU Affero General Public License v3 or later**. The full text is in [`LICENSE`](LICENSE).
 - AGPLv3 is required because Eudyptula builds on JUCE, which is offered under either a paid license or the AGPLv3.
-- Third-party components and their licenses are recorded in [`LICENSES.md`](LICENSES.md): [tiny-AES-c](https://github.com/kokke/tiny-AES-c) by kokke (Unlicense) for the AES-256 block cipher, and the K-weighting sample-rate adaptation from the [Klangfreund LUFS Meter](https://klangfreund.com/lufsmeter/) by Samuel Gaehwiler (MIT).
+- Third-party components and their licenses are recorded in [`LICENSES.md`](LICENSES.md): [tiny-AES-c](https://github.com/kokke/tiny-AES-c) by kokke (Unlicense) for the AES-256 block cipher, and the K-weighting sample-rate adaptation from the [Klangfreund LUFS Meter](https://github.com/klangfreund/LUFSMeter) by Samuel Gaehwiler (MIT).
 
 ## A note on the "encryption"
 - **The AES in Eudyptula is a sound-design tool, not a security feature.** ECB was chosen precisely because it is a poor cipher: its determinism is what makes it musically interesting.
