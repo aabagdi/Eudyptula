@@ -10,7 +10,7 @@ Eudyptula is a real-time audio effect plugin (VST3, AU, AUv3, AAX and LV2) that 
 - However, this determinism leads to some issues regarding the security of ECB: if the given input has a repeating pattern in it, the ciphertext will also have patterns! This is depicted by this famous ECB encryption of Tux, the Linux penguin: ![penguin](https://i.imgur.com/4CzMItx.png)
 - This is, obviously, horribly insecure, and is why ECB isn't used in modern cryptography.
 - I figured that if ECB works this way on images with patterns in them, it could work with sounds!
-- Thus, the cryptographer's chagrin becomes the musician's merriment: I've harnessed ECB to create an interesting effect on waveforms.
+- Thus, the cryptographer's chagrin becomes the musician's merriment: I've harnessed ECB to create an interesting audio effect.
 
 ## What it does
 Eudyptula is a pedal-like effect. Clean audio goes in, Eudyptula does its work, and processed audio comes out. Per block, it:
