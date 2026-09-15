@@ -62,5 +62,5 @@ JUCE is not included in this repo, so you'll need your own copy. Eudyptula is bu
 
 ## Notes
 - **The AES in Eudyptula is not secure.** ECB was chosen because it is a poor cipher due to preserving patterns.
-- Keys are stored and displayed in plaintext, are used directly as key material with no key stretching, are zero-padded or truncated to 32 bytes, and the audio pipeline is lossy in both directions so nothing can be recovered. Setting Dec Key to match Enc Key does not undo anything.
-- Treat the key as a timbre selector. Eudyptula provides no confidentiality, integrity or authentication, so don’t use it for anything where security is needed. See [`LICENSES.md`](LICENSES.md) for details.
+- Keys are stored and displayed in plaintext, are used directly as key material with no key stretching, are zero-padded or truncated to 32 bytes, and the audio pipeline is lossy in both directions so nothing can be recovered. Setting Dec Key to match Enc Key undos nothing.
+- Treat the keys as timbre selectors. Eudyptula provides no confidentiality, integrity or authentication, so don’t use it for anything where security is needed. See [`LICENSES.md`](LICENSES.md) for details.
