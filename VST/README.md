@@ -1,6 +1,6 @@
 # Eudyptula
 
-Eudyptula is a real-time audio effect plugin (VST3, AU, AUv3, AAX and LV2) that runs your signal through AES-256 in ECB mode and plays back the ciphertext as audio. This effect is an adaptation of an old ECB-powered sampler I made for my Computers, Sound and Music class I took for my masters program at Portland State University. It is built with [JUCE](https://juce.com). Pedal version coming in the future!
+Eudyptula is a real-time audio effect plugin (VST3, AU, AUv3, AAX and LV2) that runs your signal through AES-256 in ECB mode and plays back the ciphertext as audio. This effect is an adaptation of an old ECB-powered sampler I made for my Computers, Sound and Music class I took for my masters program at Portland State University, stemming from an idea I’ve had since 2021 when I took a cryptography class during my time at Reed College. It is built with [JUCE](https://juce.com). Pedal version coming in the future!
 
 ## Background
 - Electronic codebook mode (ECB) is a block cipher mode of encryption. A block cipher mode of encryption is an algorithm that uses a block cipher (a cipher that operates on fixed-length blocks of the input, commonly something like AES) to encrypt something.
