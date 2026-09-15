@@ -19,8 +19,8 @@ Per block, Eudyptula:
 2. Tracks the pitch of the incoming signal with a YIN-style monophonic tracker (roughly 43 Hz to 1.4 kHz), falling back to a fixed 220 Hz carrier when nothing pitched is detected.
 3. Resamples the input onto that carrier, multiplied by the **Harmonic** ratio, so the cipher's block rate is locked to the note being played.
 4. Normalizes each sample against a running envelope and quantizes it to one of **Quantize** levels, then packs it as a 16-bit word. With **Quantize** off, the cipher itself is the only thing modifying the sound.
-5. Runs every 8 samples (16 bytes) through AES-256-ECB. Each passphrase also derives a key profile, applied around the cipher itself: a byte-whitening mask, a shuffle of the output sample slots, and three macro axes (subdivision, tone tilt and sparsity), each level-compensated.
-6. Passes through `8 - Corrupt` samples of the block as plain quantized audio, so **Corrupt** sweeps continuously from clean to fully ciphered.
+5. Runs every 8 samples (16 bytes) through AES-256-ECB.
+6. Passes through `8 - Corrupt` samples of the block as plain quantized audio. 0 is clean, 8 is fully encrypted.
 7. Optionally reuses each ciphered block for **Hold** carrier cycles. High Hold sounds smoother and more tonal, and low Hold sounds glitchier.
 8. Gates the wet signal below a **Sensitivity**-controlled threshold with a soft knee.
 9. Mixes wet against dry, then matches the output loudness to the input using a K-weighted running measurement, applies the output **Gain**, and passes the result through a soft limiter.
