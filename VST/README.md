@@ -60,7 +60,7 @@ JUCE is not included in this repo, so you'll need your own copy. Eudyptula is bu
 - AGPLv3 is required because Eudyptula builds on JUCE, which is offered under either a paid license or the AGPLv3.
 - Third-party components and their licenses are recorded in [`LICENSES.md`](LICENSES.md): [tiny-AES-c](https://github.com/kokke/tiny-AES-c) by kokke (Unlicense) for the AES-256 block cipher, and the K-weighting sample-rate adaptation from the [Klangfreund LUFS Meter](https://github.com/klangfreund/LUFSMeter) by Samuel Gaehwiler (MIT).
 
-## A note on the "encryption"
-- **The AES in Eudyptula is a sound-design tool, not a security feature.** ECB was chosen precisely because it is a poor cipher: its determinism is what makes it musically interesting.
+## Notes
+- **The AES in Eudyptula is not secure.** ECB was chosen because it is a poor cipher due to preserving patterns.
 - Keys are stored and displayed in plaintext, are used directly as key material with no key stretching, are zero-padded or truncated to 32 bytes, and the audio pipeline is lossy in both directions so nothing can be recovered. Setting Dec Key to match Enc Key does not undo anything.
-- Treat the key as a timbre selector. Do not use Eudyptula to conceal audio; it provides no confidentiality, integrity or authentication. See [`LICENSES.md`](LICENSES.md) for details.
+- Treat the key as a timbre selector. Eudyptula provides no confidentiality, integrity or authentication, so don’t use it for anything where security is needed. See [`LICENSES.md`](LICENSES.md) for details.
