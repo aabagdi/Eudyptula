@@ -12,13 +12,13 @@ Eudyptula is a real-time audio effect plugin (VST3, AU, AUv3, AAX and LV2) that 
 - I figured that if ECB works this way on images with patterns in them, it could work with sounds!
 - Thus, the cryptographer's chagrin becomes the musician's merriment: I've harnessed ECB to create an interesting audio effect.
 
-## What it does
+## What it does (in a nutshell)
 Per block, Eudyptula:
 
 1. Chunks the input audio into 8 blocks.
 2. Tracks the pitch of the incoming signal with a YIN-style monophonic tracker (roughly 43 Hz to 1.4 kHz), falling back to a fixed 220 Hz carrier when nothing pitched is detected.
-3. Resamples the input onto that carrier, multiplied by the **Harmonic** ratio, so the cipher's block rate is locked to the note being played.
-4. Normalizes each sample against a running envelope and quantizes it to one of **Quantize** levels, then packs it as a 16-bit word. With **Quantize** off, the cipher itself is the only thing modifying the sound.
+3. Resamples the input onto that carrier, multiplied by the **Harmonic** ratio, giving pitch tracking.
+4. Normalizes each sample against a running envelope and quantizes it to one of **Quantize** levels.
 5. Runs every 8 samples (16 bytes) through AES-256-ECB.
 6. Passes through `8 - Corrupt` samples of the block as plain quantized audio. 0 is clean, 8 is fully encrypted.
 7. Optionally reuses each ciphered block for **Hold** carrier cycles. High Hold sounds smoother and more tonal, and low Hold sounds glitchier.
